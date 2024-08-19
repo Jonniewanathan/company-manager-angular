@@ -2,9 +2,10 @@ const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const app = express();
 const companyRoutes = require('./routes/routes');
 const sequelize = require('./models/database');
+
+const app = express();
 
 app.use(cors());
 app.use(helmet());
