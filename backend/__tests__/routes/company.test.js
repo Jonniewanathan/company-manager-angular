@@ -20,55 +20,55 @@ describe('Company Routes', () => {
       .post('/api/companies')
       .send({
         name: 'Test Company',
-        stockTicker: 'TST',
+        ticker: 'TST',
         exchange: 'NYSE',
-        ISIN: 'US1234567890',
+        isin: 'US1234567890',
         website: 'http://testcompany.com',
       });
     expect(response.status).toBe(201);
     expect(response.body.name).toBe('Test Company');
-    expect(response.body.stockTicker).toBe('TST');
-    expect(response.body.ISIN).toBe('US1234567890');
+    expect(response.body.ticker).toBe('TST');
+    expect(response.body.isin).toBe('US1234567890');
   });
 
   it('should retrieve a company by ID', async () => {
     // Create a company for this test
     const company = await Company.create({
       name: 'Test Company 2',
-      stockTicker: 'TST2',
+      ticker: 'TST2',
       exchange: 'NYSE',
-      ISIN: 'US0987654321',
+      isin: 'US0987654321',
     });
 
     const response = await request(app)
       .get(`/api/companies/${company.id}`);
     expect(response.status).toBe(200);
     expect(response.body.name).toBe('Test Company 2');
-    expect(response.body.ISIN).toBe('US0987654321');
+    expect(response.body.isin).toBe('US0987654321');
   });
 
-  it('should retrieve a company by ISIN', async () => {
+  it('should retrieve a company by isin', async () => {
     // Create a company for this test
     const company = await Company.create({
       name: 'Test Company 3',
-      stockTicker: 'TST3',
+      ticker: 'TST3',
       exchange: 'NYSE',
-      ISIN: 'US1122334455',
+      isin: 'US1122334455',
     });
 
     const response = await request(app)
-      .get(`/api/companies/isin/${company.ISIN}`);
+      .get(`/api/companies/isin/${company.isin}`);
     expect(response.status).toBe(200);
     expect(response.body.name).toBe('Test Company 3');
-    expect(response.body.stockTicker).toBe('TST3');
+    expect(response.body.ticker).toBe('TST3');
   });
 
   it('should retrieve all companies', async () => {
     await Company.create({
       name: 'Test Company 4',
-      stockTicker: 'TST4',
+      ticker: 'TST4',
       exchange: 'NYSE',
-      ISIN: 'US5566778899',
+      isin: 'US5566778899',
     });
 
     const response = await request(app)
@@ -81,9 +81,9 @@ describe('Company Routes', () => {
     // Create a company for this test
     const company = await Company.create({
       name: 'Test Company 5',
-      stockTicker: 'TST5',
+      ticker: 'TST5',
       exchange: 'NYSE',
-      ISIN: 'US6677889900',
+      isin: 'US6677889900',
     });
 
     const response = await request(app)

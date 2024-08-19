@@ -13,15 +13,13 @@ describe('Company Model', () => {
   it('should create a new company', async () => {
     const company = await Company.create({
       name: 'Test Company',
-      stockTicker: 'TST',
+      ticker: 'TST',
       exchange: 'NYSE',
-      ISIN: 'US1234567890',
+      isin: 'US1234567890',
       website: 'http://testcompany.com',
     });
     expect(company.name).toBe('Test Company');
-    expect(company.stockTicker).toBe('TST');
-    expect(company.ISIN).toBe('US1234567890');
+    expect(company.ticker).toBe('TST');
+    expect(company.isin).toBe('US1234567890');
   });
-
-  // More tests...
 });

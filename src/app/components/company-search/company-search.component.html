@@ -1,0 +1,18 @@
+<form class="searchForm" [formGroup]="companySearchForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input (keyup)="disableFields()" matInput placeholder="ID" formControlName="id">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>ISIN</mat-label>
+    <input (keyup)="disableFields()" matInput placeholder="ISIN" formControlName="isin">
+    <mat-hint>Pattern: AA##########</mat-hint>
+    @if (companySearchForm.get('isin')?.hasError('pattern')){
+      <mat-error>
+        Invalid ISIN format
+      </mat-error>
+    }
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Search</button>
+</form>
+

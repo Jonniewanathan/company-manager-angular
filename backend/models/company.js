@@ -6,7 +6,7 @@ const Company = sequelize.define('Company', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  stockTicker: {
+  ticker: {
     type: DataTypes.STRING,
     allowNull: false,
   },
@@ -14,7 +14,7 @@ const Company = sequelize.define('Company', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  ISIN: {
+  isin: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
@@ -24,9 +24,7 @@ const Company = sequelize.define('Company', {
   },
   website: {
     type: DataTypes.STRING,
-    validate: {
-      isUrl: true,
-    },
+    allowNull: true,
   },
 });
 
