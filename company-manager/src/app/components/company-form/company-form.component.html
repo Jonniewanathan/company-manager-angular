@@ -1,0 +1,33 @@
+<form class="parent" [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Company Name</mat-label>
+    <input matInput placeholder="Company Name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Ticker</mat-label>
+    <input matInput placeholder="Ticker" formControlName="ticker">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Exchange</mat-label>
+    <input matInput placeholder="Exchange" formControlName="exchange">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>ISIN</mat-label>
+    <input matInput placeholder="ISIN" formControlName="isin">
+    @if(!readonly){
+      <mat-hint>Pattern: AA##########</mat-hint>
+    }
+    @if (companyForm.get('isin')?.hasError('pattern')){
+      <mat-error>
+        Invalid ISIN format
+      </mat-error>
+    }
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Website</mat-label>
+    <input matInput placeholder="Website URL" formControlName="website">
+  </mat-form-field>
+  @if (!readonly){
+    <button mat-raised-button color="primary" type="submit">Save</button>
+  }
+</form>
