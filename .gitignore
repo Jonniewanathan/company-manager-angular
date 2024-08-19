@@ -47,3 +47,5 @@ package-lock.json
 /.vscode/
 /backend/coverage/
 backend/coverage
+yarn.lock
+backend/yarn.lock

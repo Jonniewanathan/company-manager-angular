@@ -44,7 +44,7 @@ export class CompanyListComponent implements OnInit, OnDestroy{
     this.datasource = new MatTableDataSource<Company>();
   }
 
-  displayedColumns: string[] = ['name', 'ticker', 'exchange', 'isin', 'website', 'update', 'delete'];
+  displayedColumns: string[] = ['name', 'ticker', 'exchange', 'isin', 'website', 'update'];
 
   ngOnInit() {
     this.loadData();
