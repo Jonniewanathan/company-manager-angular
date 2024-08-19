@@ -1,0 +1,5 @@
+<h2 mat-dialog-title>Create Company</h2>
+<mat-dialog-content>
+  <app-company-form [company]="formDialogData" [editMode]=formDialogData.edit (afterSubmit)="close()"></app-company-form>
+</mat-dialog-content>
+
