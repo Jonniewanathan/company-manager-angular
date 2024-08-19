@@ -46,3 +46,4 @@ backend/package-lock.json
 package-lock.json
 /.vscode/
 /backend/coverage/
+backend/coverage
