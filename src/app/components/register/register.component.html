@@ -1,0 +1,17 @@
+<h2>Register</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput placeholder="Password" formControlName="password">
+    @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
+      <mat-error>
+        Password must be at least 6 characters long
+      </mat-error>
+    }
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit">Register</button>
+</form>

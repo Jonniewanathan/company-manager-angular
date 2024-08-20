@@ -62,8 +62,8 @@ export class CompanyListComponent implements OnInit, OnDestroy{
       dialogRef = this.dialog.open(
         CompanyFormModalComponent,
         {
-          height: '400px',
-          width: '600px',
+          height: '550px',
+          width: '400px',
           data: {
             ...company,
             edit: true
@@ -73,8 +73,8 @@ export class CompanyListComponent implements OnInit, OnDestroy{
       dialogRef = this.dialog.open(
         CompanyFormModalComponent,
         {
-          height: '400px',
-          width: '600px',
+          height: '550px',
+          width: '400px',
           data: {
             edit: false
           },

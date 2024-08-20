@@ -65,8 +65,8 @@ describe('CompanyListComponent', () => {
     expect(dialogSpy.open).toHaveBeenCalledWith(
       jasmine.any(Function),
       {
-        height: '400px',
-        width: '600px',
+        height: '550px',
+        width: '400px',
         data: {
           ...mockCompany,
           edit: true
@@ -83,8 +83,8 @@ describe('CompanyListComponent', () => {
     expect(dialogSpy.open).toHaveBeenCalledWith(
       jasmine.any(Function),
       {
-        height: '400px',
-        width: '600px',
+        height: '550px',
+        width: '400px',
         data: {
           edit: false
         }

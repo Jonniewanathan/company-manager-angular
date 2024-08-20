@@ -19,7 +19,7 @@ describe('CompanyService', () => {
   });
 
   afterEach(() => {
-    httpMock.verify(); // Verifies that no unmatched requests are outstanding.
+    httpMock.verify();
   });
 
   it('should be created', () => {
