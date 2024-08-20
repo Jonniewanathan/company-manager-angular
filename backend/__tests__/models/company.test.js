@@ -1,13 +1,7 @@
 const Company = require('../../models/company');
 const sequelize = require('../../models/database');
 
-beforeAll(async () => {
-  await sequelize.sync({ force: true }); // Sync the database
-});
 
-afterAll(async () => {
-  await sequelize.close(); // Close the database connection
-});
 
 describe('Company Model', () => {
   it('should create a new company', async () => {

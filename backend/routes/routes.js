@@ -2,8 +2,9 @@ const express = require('express');
 const Company = require('../models/company');
 const router = express.Router();
 
-// Create a Company
-router.post('/', async (req, res) => {
+const passport = require('passport');
+
+router.post('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const company = await Company.create(req.body);
     res.status(201).json(company);
@@ -12,8 +13,8 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Retrieve all Companies
-router.get('/', async (req, res) => {
+
+router.get('/', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const companies = await Company.findAll();
     res.json(companies);
@@ -22,8 +23,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Retrieve a Company by ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const company = await Company.findByPk(req.params.id);
     if (company) {
@@ -36,8 +36,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Retrieve a Company by ISIN
-router.get('/isin/:isin', async (req, res) => {
+router.get('/isin/:isin', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const company = await Company.findOne({ where: { isin: req.params.isin } });
     if (company) {
@@ -50,8 +49,7 @@ router.get('/isin/:isin', async (req, res) => {
   }
 });
 
-// Update a Company
-router.put('/:id', async (req, res) => {
+router.put('/:id', passport.authenticate('jwt', { session: false }), async (req, res) => {
   try {
     const company = await Company.findByPk(req.params.id);
     if (company) {

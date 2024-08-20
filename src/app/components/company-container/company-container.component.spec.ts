@@ -3,12 +3,14 @@ import { CompanyContainerComponent } from './company-container.component';
 import { CompanyListComponent } from '../company-list/company-list.component';
 import { CompanySearchComponent } from '../company-search/company-search.component';
 import {MockComponent} from 'ng-mocks';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 describe('CompanyContainerComponent', () => {
   let component: CompanyContainerComponent;
   let fixture: ComponentFixture<CompanyContainerComponent>;
-  let mockListComponent: jasmine.SpyObj<CompanyListComponent>;
-  let mockSearchComponent: jasmine.SpyObj<CompanySearchComponent>;
+  const authServiceSpy = jasmine.createSpyObj('AuthService', ['login', 'saveToken']);
+  const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
   beforeEach(async () => {
 
@@ -17,6 +19,10 @@ describe('CompanyContainerComponent', () => {
         CompanyContainerComponent,
         MockComponent(CompanyListComponent),
         MockComponent(CompanySearchComponent)
+      ],
+      providers: [
+        { provide: AuthService, useValue: authServiceSpy },
+        { provide: Router, useValue: routerSpy }
       ]
     }).compileComponents();
 

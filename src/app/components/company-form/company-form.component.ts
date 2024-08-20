@@ -58,7 +58,7 @@ export class CompanyFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    // ADD check here if successfully Created/Updated
+    // TODO ADD check here if successfully Created/Updated
     if (this.companyForm.valid) {
       if (this.editMode){
         this.companyService.updateCompany(this.company.id, this.companyForm.value).subscribe();
