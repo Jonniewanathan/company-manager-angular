@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { AuthGuard } from './auth.guard';
+import { canActivate } from './auth.guard';
 import { AuthService } from '../services/auth.service';
 import {RouterTestingModule} from '@angular/router/testing';
 
@@ -22,13 +22,13 @@ describe('AuthGuard', () => {
       ],
     });
 
-    TestBed.runInInjectionContext(() => AuthGuard.canActivate(null as any, null as any));
+    TestBed.runInInjectionContext(() => canActivate(null as any, null as any));
   });
 
   it('should allow activation when the user is authenticated', () => {
     isAuthenticatedSpy.and.returnValue(true);
 
-    const result = TestBed.runInInjectionContext(() => AuthGuard.canActivate(null as any, null as any));
+    const result = TestBed.runInInjectionContext(() => canActivate(null as any, null as any));
 
     expect(result).toBeTrue();
     expect(routerSpy.navigate).not.toHaveBeenCalled();
@@ -37,7 +37,7 @@ describe('AuthGuard', () => {
   it('should prevent activation and redirect to /login when the user is not authenticated', () => {
     isAuthenticatedSpy.and.returnValue(false);
 
-    const result = TestBed.runInInjectionContext(() => AuthGuard.canActivate(null as any, null as any));
+    const result = TestBed.runInInjectionContext(() => canActivate(null as any, null as any));
 
     expect(result).toBeFalse();
     expect(routerSpy.navigate).toHaveBeenCalledWith(['/login']);
