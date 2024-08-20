@@ -2,8 +2,8 @@
 
 ## Project Stack (The "SEAN" Stack)
 - Sqlite
-- Angular
 - Express.js
+- Angular
 - Node.js
 
 
